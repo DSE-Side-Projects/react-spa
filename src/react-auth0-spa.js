@@ -29,6 +29,9 @@ export const Auth0Provider = ({
         const { appState } = await auth0FromHook.handleRedirectCallback()
         onRedirectCallback(appState)
       }
+      if(window.location.search.includes("error=")){
+        alert(window.location.search.split("&")[1].split("=")[1])
+      }
 
       const isAuthenticated = await auth0FromHook.isAuthenticated()
 
